@@ -1,0 +1,9 @@
+## Table 3. Suppression Subtype and Known-Censoring Bounds Eligibility
+
+| Release group | Suppressed cells | Primary low-count cells | Ambiguous suppressed cells | Primary-bounded cells | Bounds assigned | Main interpretation | Bounds note |
+|---|---|---|---|---|---|---|---|
+| No.1–2 (rule missing) | 6442 | 0 | 6442 | 0 | None | No verified rule text. Suppression confirmed but threshold unknown. | No bounds assigned. All suppressed cells remain uncharacterized. |
+| No.3–4 (aggressive rule) | 6392 | 4982 | 1410 | 4982 | [1, 9] | Rule verified. Complementary rule suppresses all 47 prefectures when 1 cell < T. Rows with n_supp < 47 classified as primary_low_count; n_supp = 47 as ambiguous. | Primary-bounded cells receive identification region [1, 9]. |
+| No.5–11 excl. No.8 (standard rule) | 12898 | 0 | 12898 | 0 | None | Rule verified. Complementary rule suppresses minimum cell ≥ T when 1 cell < T. In practice, n_supp ≥ 2 in all rows with suppression; primary and complementary cells cannot be distinguished. All classified conservatively as ambiguous. | No bounds assigned for any cell in this group. |
+
+*Identification regions are assigned only to primary low-count cells where the disclosure rule is verified, T = 10, and zero is published explicitly (lower_bound_rule = event_exists). Ambiguous cells do not receive bounds.*

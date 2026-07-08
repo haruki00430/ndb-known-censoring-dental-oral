@@ -1,0 +1,159 @@
+{
+  "verdict": "QC_PASS_TABLES_READY",
+  "qc_date": "2026-07-07",
+  "script_sha256_prefix": "f7e5d319c714556a",
+  "file_presence": {
+    "dental_file_inventory.csv": true,
+    "dental_rule_inventory.csv": true,
+    "dental_indicator_catalog.csv": true,
+    "dental_cell_state_full.csv": true,
+    "dental_row_suppression_context.csv": true,
+    "dental_bounds_primary.csv": true,
+    "dental_naive_handling_ready.csv": true,
+    "dental_extraction_summary.json": true
+  },
+  "row_counts": {
+    "dental_file_inventory.csv": 11,
+    "dental_rule_inventory.csv": 11,
+    "dental_indicator_catalog.csv": 311,
+    "dental_cell_state_full.csv": 71017,
+    "dental_row_suppression_context.csv": 1511,
+    "dental_bounds_primary.csv": 4982,
+    "dental_naive_handling_ready.csv": 6044
+  },
+  "release_check": {
+    "all_11_present": true,
+    "missing_from_inv": [],
+    "no8_excluded": true,
+    "no8_exclusion_reason": "metric_change_claim_count_not_disease_count",
+    "retained_count": 10,
+    "retained_count_expected": 10,
+    "retained_count_ok": true
+  },
+  "rule_variant_check": {
+    "No.1": {
+      "expected": "missing",
+      "actual": "missing",
+      "match": true
+    },
+    "No.2": {
+      "expected": "missing",
+      "actual": "missing",
+      "match": true
+    },
+    "No.3": {
+      "expected": "aggressive",
+      "actual": "aggressive",
+      "match": true
+    },
+    "No.4": {
+      "expected": "aggressive",
+      "actual": "aggressive",
+      "match": true
+    },
+    "No.5": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.6": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.7": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.8": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.9": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.10": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    },
+    "No.11": {
+      "expected": "standard",
+      "actual": "standard",
+      "match": true
+    }
+  },
+  "threshold_T_only_for_verified": true,
+  "missing_rule_no_primary_bounds": true,
+  "computed_cell_counts": {
+    "total": 71017,
+    "observed": 45285,
+    "suppressed": 25732,
+    "blank": 0,
+    "parse_error": 0,
+    "primary_low_count": 4982,
+    "ambiguous_suppression": 20750
+  },
+  "reported_cell_counts": {
+    "release_count_scanned": 11,
+    "retained_file_count": 10,
+    "indicator_count_total": 311,
+    "total_cells": 71017,
+    "observed_cell_count": 45285,
+    "suppressed_cell_count": 25732,
+    "blank_cell_count": 0,
+    "parse_error_count": 0,
+    "primary_low_count_suppressed_cell_count": 4982,
+    "ambiguous_suppression_cell_count": 20750,
+    "primary_bounds_eligible_cell_count": 4982
+  },
+  "discrepancies": {},
+  "bounds_primary_checks": {
+    "no_ambiguous_in_bounds_primary": true,
+    "all_bounds_correct": true,
+    "row_count_matches_summary": true,
+    "primary_bounded_cells": 4982
+  },
+  "row_context_checks": {
+    "no12_primary_count": 0,
+    "no5to11_primary_count": 0,
+    "no34_wrong_count": 0,
+    "row_context_ok": true
+  },
+  "naive_handling_check": {
+    "strategies_present": [
+      "complete_case",
+      "midpoint",
+      "upper_bound_T_minus_1",
+      "zero"
+    ],
+    "all_required_present": true,
+    "all_strategy_ready": true
+  },
+  "stop_conditions": {
+    "bounds_primary_contains_ambiguous": false,
+    "no8_not_excluded": false,
+    "missing_rule_releases_have_primary_bounds": false,
+    "no5_11_primary_assigned": false,
+    "core_counts_not_reproduced": false
+  },
+  "manuscript_tables_generated": [
+    "manuscript_tables/table1_release_rule_inventory.csv",
+    "manuscript_tables/table1_release_rule_inventory.md",
+    "manuscript_tables/table2_observability_by_release.csv",
+    "manuscript_tables/table2_observability_by_release.md",
+    "manuscript_tables/table3_suppression_subtype_bounds.csv",
+    "manuscript_tables/table3_suppression_subtype_bounds.md",
+    "manuscript_tables/table4_naive_handling_strategies.csv",
+    "manuscript_tables/table4_naive_handling_strategies.md"
+  ],
+  "figure_data_generated": [
+    "figure_data/figure1_rule_variant_timeline.csv",
+    "figure_data/figure2_observability_heatmap_data.csv",
+    "figure_data/figure3_bounds_eligibility_by_release.csv"
+  ]
+}

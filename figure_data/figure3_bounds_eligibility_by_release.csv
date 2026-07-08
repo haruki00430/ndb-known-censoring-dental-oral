@@ -1,0 +1,11 @@
+﻿release_id,fiscal_year,suppressed_cells,primary_bounded_cells,ambiguous_suppression_cells,primary_bounded_percentage_among_suppressed
+No.1,2014,3306,0,3306,0.0
+No.2,2015,3136,0,3136,0.0
+No.3,2016,3101,2490,611,80.3
+No.4,2017,3291,2492,799,75.7
+No.5,2018,2863,0,2863,0.0
+No.6,2019,2965,0,2965,0.0
+No.7,2020,3047,0,3047,0.0
+No.9,2022,1364,0,1364,0.0
+No.10,2023,1402,0,1402,0.0
+No.11,2024,1257,0,1257,0.0

@@ -1,0 +1,4 @@
+indicator_id,indicator_name,selection_role,retained_releases_available,observed_cells,primary_bounded_cells,ambiguous_suppression_cells,selection_reason
+IND_5220077,血行性歯髄炎,bounded_demo,10,143,92,235,最多 primary_bounded_cells (92件)、observed >= 40件
+IND_5210011,根充済み,stable_observed_demo,10,470,0,0,観測率 100.0%・ambiguous ゼロ
+IND_8843319,限局型若年性歯周炎,ambiguous_limit_demo,10,87,0,383,ambiguous_suppression 383件でランキング不可の例示

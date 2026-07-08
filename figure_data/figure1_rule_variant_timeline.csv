@@ -1,0 +1,12 @@
+﻿release_id,fiscal_year,rule_variant,retained_status,metric_change_flag,notes
+No.1,2014,missing,include,no,No suppression rule text found in header
+No.2,2015,missing,include,no,No suppression rule text found in header
+No.3,2016,aggressive,include,no,Complementary rule suppresses all 47 prefecture cells when 1 cell < T
+No.4,2017,aggressive,include,no,Complementary rule suppresses all 47 prefecture cells when 1 cell < T
+No.5,2018,standard,include,no,Complementary rule suppresses minimum cells ≥ T when 1 cell < T
+No.6,2019,standard,include,no,Complementary rule suppresses minimum cells ≥ T when 1 cell < T
+No.7,2020,standard,include,no,Complementary rule suppresses minimum cells ≥ T when 1 cell < T
+No.8,2021,standard,excluded,yes,"Excluded: metric label is 算定回数 (claim count), not 傷病件数 (disease count)"
+No.9,2022,standard,include,no,Complementary rule suppresses minimum cells ≥ T when 1 cell < T
+No.10,2023,standard,include,no,Complementary rule suppresses minimum cells ≥ T; public-expense claims excluded from FY2023
+No.11,2024,standard,include,no,Complementary rule suppresses minimum cells ≥ T; public-expense claims excluded

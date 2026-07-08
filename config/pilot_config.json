@@ -1,0 +1,35 @@
+{
+  "domain": "Dental/oral",
+  "required_sheets": [
+    "Pilot_Setup",
+    "Candidate_Files",
+    "Candidate_Indicators",
+    "Rule_Verification",
+    "Cell_State_Trial",
+    "Bounds_Trial",
+    "Naive_Comparison",
+    "Go_NoGo"
+  ],
+  "required_naive_strategies": [
+    "complete_case",
+    "zero",
+    "upper_bound_T_minus_1",
+    "midpoint"
+  ],
+  "allowed_cell_states": [
+    "observed",
+    "suppressed",
+    "unpublished",
+    "blank",
+    "not_applicable",
+    "structurally_unavailable",
+    "parse_error"
+  ],
+  "go_criteria": {
+    "min_retained_indicators": 1,
+    "min_verified_rules": 1,
+    "min_suppressed_cells_with_bounds": 1,
+    "require_all_naive_strategies": true
+  }
+}
+

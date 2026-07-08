@@ -1,0 +1,45 @@
+# NDB raw data — license prohibits redistribution
+02_Data/raw/
+02_Data/interim/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+
+# AI tool settings (internal DB, conflict risk)
+.antigravity/
+.claude/
+.cursor/
+.gemini/
+.obsidian/
+.serena/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Large intermediary outputs (regenerable)
+results/full_extraction/dental_cell_state_full.csv
+results/full_extraction/dental_naive_handling_ready.csv
+
+# Temporary
+*.tmp
+*.bak
+*.backup
+*.log
