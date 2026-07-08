@@ -10,7 +10,7 @@ We submit for your consideration a manuscript entitled "Known Censoring, Not Mis
 
 **Contribution to official statistics methodology.** Public administrative healthcare databases routinely suppress small cell counts to protect confidentiality, yet the methodological consequences of this suppression for downstream inference are rarely examined at the data-production level. Our paper reframes cell suppression not as generic missing data but as an interval-censoring and partial-identification problem. Using Japan's National Database (NDB) Open Data — a publicly available, release-versioned series covering ten fiscal years and 71,017 prefecture-level cells in the Dental/Oral domain — we demonstrate that (1) the identification region of a suppressed cell depends on the release-specific disclosure rule and the cell's suppression subtype; (2) the same verified disclosure rule does not imply that every suppressed cell is bounded; and (3) rate estimation and prefecture ranking are constrained not only by statistical uncertainty but also by which cells the public release makes identifiable. This methodological perspective is applicable to any jurisdiction that publishes aggregate official statistics with disclosure control.
 
-**Scope.** The manuscript is a methods and worked-example paper directly relevant to IAOS members who produce or use public official statistics. The analysis requires no non-public data; all source files and analysis code will be made publicly available on GitHub and archived on Zenodo upon acceptance.
+**Scope.** The manuscript is a methods and worked-example paper directly relevant to IAOS members who produce or use public official statistics. The analysis requires no non-public data; all source files and analysis code are openly available on GitHub (https://github.com/haruki00430/ndb-known-censoring-dental-oral) and permanently archived on Zenodo (https://doi.org/10.5281/zenodo.21257142).
 
 **Word counts and format.** The abstract is 250 words. The main text (Introduction through Conclusions) is 2,798 words. The manuscript contains four tables and one main figure; supplementary material includes two tables and one supplementary figure. References use numbered Vancouver format.
 
@@ -24,5 +24,5 @@ Haruki Saito
 Department of Epidemiology  
 Fukushima Medical University School of Medicine  
 1 Hikarigaoka, Fukushima City, Fukushima 960-1295, Japan  
-Email: [haruki.saito@fmu.ac.jp — confirm institutional address before submission]  
+Email: m211039@fmu.ac.jp  
 ORCID: 0009-0009-7890-6068
