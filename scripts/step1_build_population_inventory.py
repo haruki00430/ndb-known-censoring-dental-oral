@@ -1,12 +1,25 @@
 """
-FY2014–FY2024（FY2021除く）都道府県別人口分母インベントリ構築
-470行（10年 × 47都道府県）
+step1_build_population_inventory.py
+====================================
+Build prefecture-year population denominator inventory (470 rows: 10 FY × 47 prefectures).
+Excludes FY2021 (NDB No.8 metric change).
 
-データソース（全て一次ソース、J-SSMパーケット不使用）:
-  FY2014     : e-Stat table 0003104195 (H22/H26基準, 2014-10-01, 単位=人)
-  FY2015–2019: e-Stat table 0003459027 (H27基準, Oct 1推計, 単位=千人→×1000)
-  FY2020–2024: Statistics_Bureau/pop_2023_est.csv (R2基準, Oct 1推計, 単位=千人→×1000)
-  ※ FY2021 除外（NDB No.8 指標変更）
+人口分母インベントリ構築スクリプト
+47都道府県 × 10年度（FY2021除く）= 470行の人口分母CSVを生成する。
+
+Data sources / データソース（全て一次ソース, J-SSMパーケット不使用）:
+  FY2014     : e-Stat table 0003104195 (H22/H26 Census basis, 2014-10-01, unit=persons)
+  FY2015–2019: e-Stat table 0003459027 (H27 Census basis, Oct-1 estimate, unit=thousands→×1000)
+  FY2020–2024: Statistics_Bureau/pop_2023_est.csv (R2 basis, Oct-1 estimate, unit=thousands→×1000)
+
+Output / 出力:
+  results/rate_bounds_demo/population_denominator_inventory.csv (470 rows)
+
+Usage / 実行方法:
+  python scripts/step1_build_population_inventory.py
+
+Note: NDB raw data (02_Data/raw/) must be present two directory levels above this
+project root (at NDB_Research_Hub/02_Data/raw/). Raw files are not redistributed.
 """
 
 import sys
@@ -16,13 +29,13 @@ import pandas as pd
 from pathlib import Path
 from datetime import date
 
-# ── パス設定 ──────────────────────────────────────────────────────────
-HUB = Path(r'C:\Users\user\.ag-cursor-common\research_workspace\projects\NDB_Research_Hub')
-PROJ = HUB / 'projects' / 'NDB-dental-oral-20260707'
+# ── Paths (relative to this script) / パス設定（スクリプト相対）──────────────
+PROJ    = Path(__file__).resolve().parents[1]   # NDB-dental-oral-20260707/
+HUB     = PROJ.parents[1]                        # NDB_Research_Hub/
 OUT_DIR = PROJ / 'results' / 'rate_bounds_demo'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-POP_CSV = HUB / '02_Data' / 'raw' / 'Statistics_Bureau' / 'pop_2023_est.csv'
+POP_CSV    = HUB / '02_Data' / 'raw' / 'Statistics_Bureau' / 'pop_2023_est.csv'
 CELL_STATE = PROJ / 'results' / 'full_extraction' / 'dental_cell_state_full.csv'
 
 ESTAT_APP_ID = '8ee5a987b9ec70631de1977bde3afd7ebc11140d'

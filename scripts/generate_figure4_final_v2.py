@@ -1,19 +1,38 @@
 # -*- coding: utf-8 -*-
 """
-Figure 4 Final Generation Script  v2
-Project: Known Censoring, Not Missingness – NDB Open Data Dental/Oral
-Date: 2026-07-08
+generate_figure4_final_v2.py
+============================
+Generate Figure 1 (main demonstration figure) for the Known Censoring study.
+All labels in English; prefecture names romanised; 300 dpi PNG + SVG output.
 
-Changes from v1:
-  - All text/labels in English
-  - Prefecture names romanised on y-axis
-  - Panel C: No.3/FY2016 data (not No.1/FY2014) from demo_naive_ranking_comparison.csv
-  - Panel C: dot-plot with connecting lines instead of grouped bars
-  - Panel A3 labelled with explicit scale note
+論文 Figure 1（レート境界・順位デモ）生成スクリプト v2
+全ラベルを英語表記、都道府県名をローマ字表記、300 dpi PNG + SVG を出力する。
 
-Outputs:
-  outputs/figure4_rate_bounds_ranking_demo_final_v2.png
+Panels / パネル:
+  Panel A (3 columns): Prefecture-level rate bounds per 100,000 population
+                       都道府県別レート境界（人口 10 万人あたり）
+  Panel B (3 columns): Prefecture-level rank intervals
+                       都道府県別ランク区間
+  Panel C (full width): Naive ranking strategy comparison [BENCHMARK ONLY]
+                        Naive ランキング戦略比較（ベンチマークのみ）
+
+Input / 入力:
+  figure_data/figure4_rate_bounds_ranking_demo.csv   (2,068 rows / 行)
+  results/rate_bounds_demo/demo_naive_ranking_comparison.csv
+
+Output / 出力:
+  outputs/figure4_rate_bounds_ranking_demo_final_v2.png  (300 dpi)
   outputs/figure4_rate_bounds_ranking_demo_final_v2.svg
+
+Usage / 実行方法:
+  python scripts/generate_figure4_final_v2.py
+
+Changes from v1 / v1 からの変更:
+  - All text/labels in English / 全ラベルを英語化
+  - Prefecture names romanised on y-axis / 都道府県名をローマ字に変更
+  - Panel C: No.3/FY2016 data (divergent strategies visible) / No.3/FY2016 データに変更
+  - Panel C: dot-plot with connecting lines / ドットプロット＋接続線に変更
+  - Hokkaido at top → Okinawa at bottom (geographic order) / 北から南の順に並び替え
 """
 
 import pandas as pd
@@ -23,14 +42,20 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
-import sys, os
+import sys
+from pathlib import Path
 
-# ── ndb_library (Japanese font NOT needed – all English) ─────────────────────
-sys.path.insert(0, r'C:\Users\user\.ag-cursor-common\research_workspace\projects\NDB_Research_Hub\src')
+# ── Paths (relative to this script) / パス設定（スクリプト相対）──────────────
+_SCRIPT = Path(__file__).resolve()
+PROJ    = _SCRIPT.parents[1]                       # NDB-dental-oral-20260707/
+HUB     = PROJ.parents[1]                          # NDB_Research_Hub/
+OUT_DIR = PROJ / 'outputs'
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-PROJ    = r'C:\Users\user\.ag-cursor-common\research_workspace\projects\NDB_Research_Hub\projects\NDB-dental-oral-20260707'
-OUT_DIR = os.path.join(PROJ, 'outputs')
-os.makedirs(OUT_DIR, exist_ok=True)
+# ndb_library optional (Japanese font not needed — all English labels)
+_ndb_src = HUB / 'src'
+if _ndb_src.exists():
+    sys.path.insert(0, str(_ndb_src))
 
 # ── Prefecture code -> English name ─────────────────────────────────────────
 PREF_EN = {
@@ -84,9 +109,9 @@ STRATEGY_MARKERS = {
 }
 
 # ── Load data ────────────────────────────────────────────────────────────────
-f4    = pd.read_csv(os.path.join(PROJ, r'figure_data\figure4_rate_bounds_ranking_demo.csv'),
+f4    = pd.read_csv(PROJ / 'figure_data' / 'figure4_rate_bounds_ranking_demo.csv',
                     encoding='utf-8', dtype={'prefecture_code': str})
-naive = pd.read_csv(os.path.join(PROJ, r'results\rate_bounds_demo\demo_naive_ranking_comparison.csv'),
+naive = pd.read_csv(PROJ / 'results' / 'rate_bounds_demo' / 'demo_naive_ranking_comparison.csv',
                     encoding='utf-8', dtype={'prefecture_code': str})
 
 pa = f4[f4['panel'] == 'A_rate_bounds'].copy()
@@ -315,8 +340,8 @@ fig.suptitle(
 )
 
 # ── Save ──────────────────────────────────────────────────────────────────────
-PNG_PATH = os.path.join(OUT_DIR, 'figure4_rate_bounds_ranking_demo_final_v2.png')
-SVG_PATH = os.path.join(OUT_DIR, 'figure4_rate_bounds_ranking_demo_final_v2.svg')
+PNG_PATH = OUT_DIR / 'figure4_rate_bounds_ranking_demo_final_v2.png'
+SVG_PATH = OUT_DIR / 'figure4_rate_bounds_ranking_demo_final_v2.svg'
 
 plt.savefig(PNG_PATH, dpi=300, bbox_inches='tight', facecolor='white')
 print(f'PNG saved: {PNG_PATH}')

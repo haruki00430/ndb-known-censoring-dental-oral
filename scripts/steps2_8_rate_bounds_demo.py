@@ -1,13 +1,33 @@
 """
-Steps 2–8: Rate Bounds / Ranking Demo for Dental/Oral Known-Censoring Study
+steps2_8_rate_bounds_demo.py
+============================
+Rate bounds and prefecture ranking demonstration for the Known Censoring study.
+Requires step1_build_population_inventory.py to have been run first.
 
-Step 2: Indicator selection (bounded_demo / stable_observed_demo / ambiguous_limit_demo)
-Step 3: Count bounds for demo indicators
-Step 4: Rate bounds
-Step 5: Ranking stability
-Step 6: Naive ranking comparison
-Step 7: Figure 4 data
-Step 8: QC report
+レート境界・都道府県順位デモスクリプト
+step1 の人口分母インベントリを前提として実行する。
+
+Steps / ステップ:
+  Step 2: Indicator selection / 指標選択（3指標: bounded / stable / ambiguous）
+  Step 3: Count bounds for demo indicators / カウント境界計算
+  Step 4: Rate bounds (per 100,000) / レート境界（人口 10 万人あたり）
+  Step 5: Ranking stability / 順位安定性評価
+  Step 6: Naive ranking comparison (benchmark only) / Naive 戦略比較（ベンチマーク）
+  Step 7: Figure 4 source data / Figure 4 データ生成
+  Step 8: QC report / QC レポート
+
+Outputs / 出力（results/rate_bounds_demo/）:
+  demo_indicator_selection.csv
+  demo_count_bounds.csv        (1,410 rows)
+  demo_rate_bounds.csv         (1,410 rows)
+  demo_ranking_stability.csv   (1,410 rows)
+  demo_naive_ranking_comparison.csv (5,640 rows)
+  figure_data/figure4_rate_bounds_ranking_demo.csv (2,068 rows)
+  rate_bounds_demo_qc_report.md
+  rate_bounds_demo_summary.json
+
+Usage / 実行方法:
+  python scripts/steps2_8_rate_bounds_demo.py
 """
 
 import sys
@@ -19,11 +39,10 @@ from datetime import date
 
 ACCESS_DATE = str(date.today())
 
-# ── パス ──────────────────────────────────────────────────────────────────────
-HUB = Path(r'C:\Users\user\.ag-cursor-common\research_workspace\projects\NDB_Research_Hub')
-PROJ = HUB / 'projects' / 'NDB-dental-oral-20260707'
-FULL = PROJ / 'results' / 'full_extraction'
-DEMO = PROJ / 'results' / 'rate_bounds_demo'
+# ── Paths (relative to this script) / パス設定（スクリプト相対）──────────────
+PROJ    = Path(__file__).resolve().parents[1]   # NDB-dental-oral-20260707/
+FULL    = PROJ / 'results' / 'full_extraction'
+DEMO    = PROJ / 'results' / 'rate_bounds_demo'
 FIGDATA = PROJ / 'figure_data'
 
 DEMO.mkdir(parents=True, exist_ok=True)

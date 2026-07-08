@@ -1,18 +1,37 @@
 """
 full_extraction.py
-Known Censoring, Not Missingness — NDB Open Data
-Full Dental/Oral Extraction: No.1–No.11
+==================
+Full Dental/Oral cell extraction for the Known Censoring study.
+Scans NDB Open Data releases No.1–No.11 and classifies each prefecture-level
+cell as observed, primary_low_count, or ambiguous_suppression.
 
-Outputs (9 files in results/full_extraction/):
-  1. dental_file_inventory.csv
-  2. dental_rule_inventory.csv
-  3. dental_indicator_catalog.csv
-  4. dental_cell_state_full.csv
-  5. dental_row_suppression_context.csv
-  6. dental_bounds_primary.csv
-  7. dental_naive_handling_ready.csv
-  8. dental_extraction_summary.json
-  9. dental_extraction_report.md
+NDB オープンデータ歯科傷病ファイル全件抽出スクリプト
+No.1〜No.11 の全リリースを走査し，都道府県レベルの各セルを
+observed / primary_low_count / ambiguous_suppression に分類する。
+
+Input / 入力:
+  02_Data/raw/NDB_OpenData/  (NDB raw Excel files — not redistributed)
+  ※ NDB 生 Excel ファイル（再配布不可）
+
+Outputs / 出力（results/full_extraction/）:
+  1. dental_file_inventory.csv           – release × file inventory
+  2. dental_rule_inventory.csv           – disclosure rule per release
+  3. dental_indicator_catalog.csv        – 311 indicator labels
+  4. dental_cell_state_full.csv          – 71,017 prefecture-level cells
+  5. dental_row_suppression_context.csv  – row-context classification
+  6. dental_bounds_primary.csv           – 4,982 primary-bounded cells
+  7. dental_naive_handling_ready.csv     – naive strategy comparison dataset
+  8. dental_extraction_summary.json      – summary statistics
+  9. dental_extraction_report.md         – human-readable report
+
+Usage / 実行方法:
+  python scripts/full_extraction.py
+
+Note / 注意:
+  Suppressed cells are NEVER assigned zero or estimated counts.
+  [1,9] bounds are assigned ONLY to verified primary low-count cells (No.3–No.4).
+  抑制セルにゼロや推定値は割り当てない。
+  [1,9] 境界は確認済み一次低カウント抑制（No.3–No.4）のみに付与する。
 """
 
 import csv

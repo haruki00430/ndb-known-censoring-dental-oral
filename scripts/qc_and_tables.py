@@ -1,18 +1,39 @@
 """
 qc_and_tables.py
-Dental/Oral Full Extraction — QC Audit + Manuscript Table Generation
+=================
+QC audit and manuscript table generation for the Known Censoring study.
+Reads the full cell-state dataset produced by full_extraction.py and generates
+all four manuscript tables plus three figure-data CSV files.
 
-Outputs (all relative to project root):
-  qc/dental_full_extraction_qc_report.md
-  qc/dental_full_extraction_qc_summary.json
-  qc/dental_full_extraction_qc_handoff_for_codex.md
-  manuscript_tables/table1_release_rule_inventory.{csv,md}
-  manuscript_tables/table2_observability_by_release.{csv,md}
-  manuscript_tables/table3_suppression_subtype_bounds.{csv,md}
-  manuscript_tables/table4_naive_handling_strategies.{csv,md}
-  figure_data/figure1_rule_variant_timeline.csv
-  figure_data/figure2_observability_heatmap_data.csv
-  figure_data/figure3_bounds_eligibility_by_release.csv
+既知打ち切り論文 QC 監査・論文テーブル生成スクリプト
+full_extraction.py が生成したセル状態データを読み込み，
+論文テーブル 1〜4 および図データ CSV を生成する。
+
+Input / 入力:
+  results/full_extraction/dental_cell_state_full.csv   (71,017 rows)
+  results/full_extraction/dental_rule_inventory.csv
+  results/full_extraction/dental_naive_handling_ready.csv
+
+Outputs / 出力:
+  qc/dental_full_extraction_qc_report.md            – human-readable QC report
+  qc/dental_full_extraction_qc_summary.json         – machine-readable summary
+  qc/dental_full_extraction_qc_handoff_for_codex.md – handoff notes
+  manuscript_tables/table1_release_rule_inventory.{csv,md}   – Table 1: release × rule
+  manuscript_tables/table2_observability_by_release.{csv,md} – Table 2: observability by release
+  manuscript_tables/table3_suppression_subtype_bounds.{csv,md} – Table 3: suppression subtypes
+  manuscript_tables/table4_naive_handling_strategies.{csv,md}  – Table 4: naive strategy comparison
+  figure_data/figure1_rule_variant_timeline.csv      – Figure 1 source
+  figure_data/figure2_observability_heatmap_data.csv – Figure 2 source
+  figure_data/figure3_bounds_eligibility_by_release.csv – Figure 3 source
+
+Usage / 実行方法:
+  python scripts/qc_and_tables.py
+
+Note / 注意:
+  Run full_extraction.py first to generate the input files.
+  事前に full_extraction.py を実行して入力ファイルを生成すること。
+  Paths are resolved relative to this script (no hardcoded absolute paths).
+  パスはスクリプトからの相対パスで解決（絶対パスなし）。
 """
 
 import csv
