@@ -25,7 +25,7 @@ authors:
       Fukushima, Japan
 date-released: "2026-07-08"
 version: "1.0.0"
-doi: "[ZENODO_DOI]"
+doi: "10.5281/zenodo.21257142"
 url: "https://github.com/haruki00430/ndb-known-censoring-dental-oral"
 repository-code: "https://github.com/haruki00430/ndb-known-censoring-dental-oral"
 license: CC-BY-4.0

@@ -154,7 +154,7 @@ This study used publicly available aggregate data and did not use individual-lev
 
 ### Data availability
 
-The NDB Open Data files used in this analysis are publicly available from the Japan Ministry of Health, Labour and Welfare (https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177182.html). Population denominator data are publicly available from the Statistics Bureau of Japan (https://www.stat.go.jp/english/data/jinsui/). All analysis code and derived non-suppressed output files are openly available on GitHub (https://github.com/haruki00430/ndb-known-censoring-dental-oral) and permanently archived on Zenodo (https://doi.org/10.5281/zenodo.[ZENODO_DOI_TO_BE_ASSIGNED]).
+The NDB Open Data files used in this analysis are publicly available from the Japan Ministry of Health, Labour and Welfare (https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000177182.html). Population denominator data are publicly available from the Statistics Bureau of Japan (https://www.stat.go.jp/english/data/jinsui/). All analysis code and derived non-suppressed output files are openly available on GitHub (https://github.com/haruki00430/ndb-known-censoring-dental-oral) and permanently archived on Zenodo (https://doi.org/10.5281/zenodo.21257142).
 
 ### Funding
 

@@ -1,8 +1,8 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21257142.svg)](https://doi.org/10.5281/zenodo.21257142)
 
 > **Repository (GitHub):** https://github.com/haruki00430/ndb-known-censoring-dental-oral  
-> **Zenodo DOI:** *(to be assigned after Zenodo release)*  
+> **Zenodo DOI:** https://doi.org/10.5281/zenodo.21257142  
 > **Reproduction:** [`REPRODUCE.md`](REPRODUCE.md) · [`CITATION.cff`](CITATION.cff)
 
 # Known Censoring, Not Missingness: Cell Suppression and Partial Identification in Open Administrative Healthcare Data
